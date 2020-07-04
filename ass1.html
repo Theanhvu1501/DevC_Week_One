@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div style="text-align: center;">
+        <h1>Mini Game</h1>
+        <p id="message">Message</p>
+        <input id="yournumber" type="number">
+        <button id="btn">click</button>
+        <p id="past"></p>
+    </div>
+
+    <script>
+        let n = 10;
+        const number = Math.floor(Math.random() * 10);
+        let message = document.getElementById("message");
+        const btn = document.getElementById('btn');
+        const past = document.getElementById('past')
+        btn.addEventListener('click', () => {
+            n--;
+            if (n == 0) {
+                btn.disabled = true;
+            }
+            let yourNumber = document.getElementById('yournumber').value;
+            if (yourNumber == number) {
+                message.innerHTML = "YOU ARE THE LORD OF THE GUESSES";
+                message.style.background = "#a2de96";
+            }
+            else if (yourNumber > number) {
+                {
+                    message.innerHTML = "you guess was guess higher.You have " + n + " sguesses left";
+                    message.style.background = "#ff4301";
+                }
+            } else {
+                message.innerHTML = "you guess was  too low.You have " + n + " sguesses left";
+                message.style.background = "#ff4301";
+            }     
+        })
+
+    </script>
+</body>
+
+</html>
