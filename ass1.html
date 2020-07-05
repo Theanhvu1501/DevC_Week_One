@@ -10,10 +10,12 @@
 <body>
     <div style="text-align: center;">
         <h1>Mini Game</h1>
-        <p id="message">Message</p>
+        <div>
+            <span id="message"></span>
+        </div>
         <input id="yournumber" type="number">
         <button id="btn">click</button>
-        <p id="past"></p>
+        <h2 id="past">Past guesses</h2>
     </div>
 
     <script>
@@ -21,7 +23,7 @@
         const number = Math.floor(Math.random() * 10);
         let message = document.getElementById("message");
         const btn = document.getElementById('btn');
-        const past = document.getElementById('past')
+        const past = document.getElementById('past');
         btn.addEventListener('click', () => {
             n--;
             if (n == 0) {
@@ -40,7 +42,9 @@
             } else {
                 message.innerHTML = "you guess was  too low.You have " + n + " sguesses left";
                 message.style.background = "#ff4301";
-            }     
+            }
+            ;
+            past.innerHTML += '<br/>' + yourNumber;
         })
 
     </script>
